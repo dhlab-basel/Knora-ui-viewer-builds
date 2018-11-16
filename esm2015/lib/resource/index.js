@@ -1,0 +1,17 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ */
+export { AnnotationComponent } from './annotation/annotation.component';
+export { AudioComponent } from './audio/audio.component';
+export { CollectionComponent } from './collection/collection.component';
+export { DddComponent } from './ddd/ddd.component';
+export { DocumentComponent } from './document/document.component';
+export { LinkObjComponent } from './link-obj/link-obj.component';
+export { MovingImageComponent } from './moving-image/moving-image.component';
+export { ObjectComponent } from './object/object.component';
+export { RegionComponent } from './region/region.component';
+export { ImageRegion, StillImageRepresentation, RequestStillImageRepresentations, GeometryForRegion, StillImageComponent } from './still-image/still-image.component';
+export { TextComponent } from './text/text.component';
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290Ijoibmc6Ly9Aa25vcmEvdmlld2VyLyIsInNvdXJjZXMiOlsibGliL3Jlc291cmNlL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFBQSxvQ0FBYyxtQ0FBbUMsQ0FBQztBQUNsRCwrQkFBYyx5QkFBeUIsQ0FBQztBQUN4QyxvQ0FBYyxtQ0FBbUMsQ0FBQztBQUNsRCw2QkFBYyxxQkFBcUIsQ0FBQztBQUNwQyxrQ0FBYywrQkFBK0IsQ0FBQztBQUM5QyxpQ0FBYywrQkFBK0IsQ0FBQztBQUM5QyxxQ0FBYyx1Q0FBdUMsQ0FBQztBQUN0RCxnQ0FBYywyQkFBMkIsQ0FBQztBQUMxQyxnQ0FBYywyQkFBMkIsQ0FBQztBQUMxQyxnSUFBYyxxQ0FBcUMsQ0FBQztBQUNwRCw4QkFBYyx1QkFBdUIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCAqIGZyb20gJy4vYW5ub3RhdGlvbi9hbm5vdGF0aW9uLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL2F1ZGlvL2F1ZGlvLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL2NvbGxlY3Rpb24vY29sbGVjdGlvbi5jb21wb25lbnQnO1xuZXhwb3J0ICogZnJvbSAnLi9kZGQvZGRkLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL2RvY3VtZW50L2RvY3VtZW50LmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL2xpbmstb2JqL2xpbmstb2JqLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL21vdmluZy1pbWFnZS9tb3ZpbmctaW1hZ2UuY29tcG9uZW50JztcbmV4cG9ydCAqIGZyb20gJy4vb2JqZWN0L29iamVjdC5jb21wb25lbnQnO1xuZXhwb3J0ICogZnJvbSAnLi9yZWdpb24vcmVnaW9uLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL3N0aWxsLWltYWdlL3N0aWxsLWltYWdlLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL3RleHQvdGV4dC5jb21wb25lbnQnO1xuIl19
