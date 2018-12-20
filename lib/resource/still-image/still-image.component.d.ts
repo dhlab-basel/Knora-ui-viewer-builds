@@ -60,7 +60,6 @@ export declare class GeometryForRegion {
 /**
  * This component creates a OpenSeadragon viewer instance.
  * Accepts an array of ReadResource containing (among other resources) ReadStillImageFileValues to be rendered.
- * The viewer will not render ReadStillImageFileValues with isPreview == true
  * @member resources - resources containing (among other resources) the StillImageFileValues and incoming regions to be rendered. (Use as angular @Input data binding property.)
  */
 export declare class StillImageComponent implements OnInit, OnChanges, OnDestroy {
@@ -80,14 +79,14 @@ export declare class StillImageComponent implements OnInit, OnChanges, OnDestroy
      * @param geom the region's geometry.
      * @returns the surface.
      */
-    private static surfaceOfRectangularRegion(geom);
+    private static surfaceOfRectangularRegion;
     /**
      * Prepare tile sources from the given sequence of [[ReadStillImageFileValue]].
      *
      * @param imagesToDisplay the given file values to de displayed.
      * @returns the tile sources to be passed to OSD viewer.
      */
-    private static prepareTileSourcesFromFileValues(imagesToDisplay);
+    private static prepareTileSourcesFromFileValues;
     constructor(elementRef: ElementRef);
     ngOnChanges(changes: {
         [key: string]: SimpleChange;
@@ -103,11 +102,11 @@ export declare class StillImageComponent implements OnInit, OnChanges, OnDestroy
     /**
      * Get the more images from the server by requesting the previous page of results for the current resource (decrease offset).
      */
-    private gotoLeft();
+    private gotoLeft;
     /**
      * Get the more images from the server by requesting the next page of results for the current resource (increase offset).
      */
-    private gotoRight();
+    private gotoRight;
     /**
      * Renders all regions to be found in [[this.images]].
      * (Although this.images is a Angular Input property, the built-in change detection of Angular does not detect changes in complex objects or arrays, only reassignment of objects/arrays.
@@ -117,16 +116,16 @@ export declare class StillImageComponent implements OnInit, OnChanges, OnDestroy
     /**
      * Initializes the OpenSeadragon viewer
      */
-    private setupViewer();
+    private setupViewer;
     /**
-     * Adds all (non-preview) images in this.images to the viewer.
+     * Adds all images in this.images to the viewer.
      * Images are positioned in a horizontal row next to each other.
      */
-    private openImages();
+    private openImages;
     /**
      * Adds a ROI-overlay to the viewer for every region of every image in this.images
      */
-    private renderRegions();
+    private renderRegions;
     /**
      * Creates and adds a ROI-overlay to the viewer
      * @param regionIri the Iri of the region.
@@ -135,7 +134,7 @@ export declare class StillImageComponent implements OnInit, OnChanges, OnDestroy
      * @param xOffset -  the x-offset in Openseadragon viewport coordinates of the image on which the geometry should be placed
      * @param toolTip -  the tooltip which should be displayed on mousehover of the svg element
      */
-    private createSVGOverlay(regionIri, geometry, aspectRatio, xOffset, toolTip);
+    private createSVGOverlay;
     /**
      * Adds the necessary attributes to create a ROI-overlay of type 'rectangle' to a SVGElement
      * @param svgElement - an SVGElement (should have type 'polygon' (sic))
@@ -143,7 +142,7 @@ export declare class StillImageComponent implements OnInit, OnChanges, OnDestroy
      * @param aspectRatio - the aspectRatio (h/w) of the image on which the circle should be placed
      * @param xOffset - the x-offset in Openseadragon viewport coordinates of the image on which the circle should be placed
      */
-    private addSVGAttributesRectangle(svgElement, geometry, aspectRatio, xOffset);
+    private addSVGAttributesRectangle;
     /**
      * Adds the necessary attributes to create a ROI-overlay of type 'polygon' to a SVGElement
      * @param svgElement - an SVGElement (should have type 'polygon')
@@ -151,7 +150,7 @@ export declare class StillImageComponent implements OnInit, OnChanges, OnDestroy
      * @param aspectRatio - the aspectRatio (h/w) of the image on which the circle should be placed
      * @param xOffset - the x-offset in Openseadragon viewport coordinates of the image on which the circle should be placed
      */
-    private addSVGAttributesPolygon(svgElement, geometry, aspectRatio, xOffset);
+    private addSVGAttributesPolygon;
     /**
      * Adds the necessary attributes to create a ROI-overlay of type 'circle' to a SVGElement
      * @param svgElement - an SVGElement (should have type 'circle')
@@ -159,7 +158,7 @@ export declare class StillImageComponent implements OnInit, OnChanges, OnDestroy
      * @param aspectRatio - the aspectRatio (h/w) of the image on which the circle should be placed
      * @param xOffset - the x-offset in Openseadragon viewport coordinates of the image on which the circle should be placed
      */
-    private addSVGAttributesCircle(svgElement, geometry, aspectRatio, xOffset);
+    private addSVGAttributesCircle;
     /**
      * Maps a Point2D[] with coordinates relative to an image to a new Point2D[] with coordinates in the viewport coordinate system of Openseadragon
      * see also: https://openseadragon.github.io/examples/viewport-coordinates/
@@ -168,11 +167,11 @@ export declare class StillImageComponent implements OnInit, OnChanges, OnDestroy
      * @param xOffset - the x-offset in viewport coordinates of the image
      * @returns - a new Point2D[] with coordinates in the viewport coordinate system of Openseadragon
      */
-    private image2ViewPortCoords(points, aspectRatio, xOffset);
+    private image2ViewPortCoords;
     /**
      * Returns a string in the format expected by the 'points' attribute of a SVGElement
      * @param points - an array of points to be serialized to a string
      * @returns - the points serialized to a string in the format expected by the 'points' attribute of a SVGElement
      */
-    private createSVGPolygonPointsAttribute(points);
+    private createSVGPolygonPointsAttribute;
 }
