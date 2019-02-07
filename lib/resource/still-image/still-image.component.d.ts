@@ -32,19 +32,6 @@ export declare class StillImageRepresentation {
     constructor(stillImageFileValue: ReadStillImageFileValue, regions: ImageRegion[]);
 }
 /**
- * Sends a requests to the parent component to load more StillImageRepresentations.
- */
-export declare class RequestStillImageRepresentations {
-    readonly offsetChange: number;
-    readonly whenLoadedCB: (numberOfImages: number) => void;
-    /**
-     *
-     * @param offsetChange the relative change of the offset in order to get more incoming StillImageRepresentations for the resource currently being displayed. Either 1 or -1.
-     * @param whenLoadedCB a callback function that is called when more incoming StillImageRepresentations have been requested and the answer arrived from the server.
-     */
-    constructor(offsetChange: number, whenLoadedCB: (numberOfImages: number) => void);
-}
-/**
  * Represents a geometry belonging to a specific region.
  */
 export declare class GeometryForRegion {
@@ -65,14 +52,11 @@ export declare class GeometryForRegion {
 export declare class StillImageComponent implements OnInit, OnChanges, OnDestroy {
     private elementRef;
     images: StillImageRepresentation[];
-    imageRangeStart: number;
-    imageRangeEnd: number;
-    imageChangeInterval: number;
     imageCaption?: string;
-    getImages: EventEmitter<RequestStillImageRepresentations>;
+    activateRegion: string;
     regionHovered: EventEmitter<string>;
-    pagingLimit: number;
     private viewer;
+    private regions;
     /**
      * Calculates the surface of a rectangular region.
      *
@@ -100,19 +84,22 @@ export declare class StillImageComponent implements OnInit, OnChanges, OnDestroy
      */
     updateImages(): void;
     /**
-     * Get the more images from the server by requesting the previous page of results for the current resource (decrease offset).
-     */
-    private gotoLeft;
-    /**
-     * Get the more images from the server by requesting the next page of results for the current resource (increase offset).
-     */
-    private gotoRight;
-    /**
      * Renders all regions to be found in [[this.images]].
      * (Although this.images is a Angular Input property, the built-in change detection of Angular does not detect changes in complex objects or arrays, only reassignment of objects/arrays.
      * Use this method if additional regions were added to the resources.images)
      */
     updateRegions(): void;
+    /**
+     * Highlights the polygon elements associated with the given region.
+     *
+     * @param regionIri the Iri of the region whose polygon elements should be highlighted..
+     */
+    private highlightRegion;
+    /**
+     * Unhighlights the polygon elements of all regions.
+     *
+     */
+    private unhighlightAllRegions;
     /**
      * Initializes the OpenSeadragon viewer
      */

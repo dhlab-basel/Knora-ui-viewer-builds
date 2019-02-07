@@ -1,0 +1,40 @@
+import * as tslib_1 from "tslib";
+import { Component } from '@angular/core';
+import { KuiView } from '../kui-view';
+import { ActivatedRoute, Router } from '@angular/router';
+import { KnoraConstants, SearchParamsService, SearchService } from '@knora/core';
+var SearchResultsComponent = /** @class */ (function (_super) {
+    tslib_1.__extends(SearchResultsComponent, _super);
+    function SearchResultsComponent(_route, _searchService, _searchParamsService, _router) {
+        var _this = _super.call(this, _route, _searchService, _searchParamsService, _router) || this;
+        _this._route = _route;
+        _this._searchService = _searchService;
+        _this._searchParamsService = _searchParamsService;
+        _this._router = _router;
+        _this.KnoraConstants = KnoraConstants;
+        _this.offset = 0;
+        _this.maxOffset = 0;
+        _this.result = [];
+        _this.rerender = false;
+        _this.isLoading = true;
+        _this.errorMessage = undefined;
+        _this.pagingLimit = 25;
+        return _this;
+    }
+    SearchResultsComponent.decorators = [
+        { type: Component, args: [{
+                    selector: 'kui-search-results',
+                    template: "<div *ngIf=\"!rerender\">\n    <div *ngIf=\"numberOfAllResults !== 0 && result; else noResult\">\n        <h4>Number of results: {{numberOfAllResults}}</h4>\n        <mat-tab-group>\n            <mat-tab label=\"List\">\n                <kui-list-view [result]=\"result\" [ontologyInfo]=\"ontologyInfo\" [isLoading]=\"isLoading\"></kui-list-view>\n            </mat-tab>\n            <mat-tab label=\"Grid\">\n                <kui-grid-view></kui-grid-view>\n            </mat-tab>\n            <mat-tab label=\"Table\">\n                <kui-table-view></kui-table-view>\n            </mat-tab>\n            <mat-tab label=\"Gravsearch\">\n                <kui-graph-view></kui-graph-view>\n            </mat-tab>\n        </mat-tab-group>\n\n        <div class=\"load-panel\" *ngIf=\"result.length > 0\">\n            <button mat-flat-button color=\"primary\" class=\"link center\" (click)=\"loadMore(offset)\" *ngIf=\"offset < maxOffset\">Load more\n                <mat-icon>keyboard_arrow_down</mat-icon>\n            </button>\n        </div>\n\n    </div>\n\n    <!-- In case of 0 result -->\n    <ng-template #noResult>\n        <p>\n            <strong>No result</strong>\n        </p>\n    </ng-template>\n\n</div>\n\n<!-- Error message -->\n<div *ngIf=\"errorMessage\">\n    <p>There is an error: {{errorMessage}}</p>\n</div>",
+                    styles: [".load-panel{width:100%}.load-panel .center{display:block;line-height:24px;margin:12px auto}"]
+                },] },
+    ];
+    SearchResultsComponent.ctorParameters = function () { return [
+        { type: ActivatedRoute },
+        { type: SearchService },
+        { type: SearchParamsService },
+        { type: Router }
+    ]; };
+    return SearchResultsComponent;
+}(KuiView));
+export { SearchResultsComponent };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2VhcmNoLXJlc3VsdHMuY29tcG9uZW50LmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGtub3JhL3ZpZXdlci8iLCJzb3VyY2VzIjpbImxpYi92aWV3L3NlYXJjaC1yZXN1bHRzL3NlYXJjaC1yZXN1bHRzLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsT0FBTyxFQUFFLFNBQVMsRUFBVSxNQUFNLGVBQWUsQ0FBQztBQUNsRCxPQUFPLEVBQUUsT0FBTyxFQUFFLE1BQU0sYUFBYSxDQUFDO0FBQ3RDLE9BQU8sRUFBRSxjQUFjLEVBQVUsTUFBTSxFQUFFLE1BQU0saUJBQWlCLENBQUM7QUFFakUsT0FBTyxFQUlMLGNBQWMsRUFLZCxtQkFBbUIsRUFDbkIsYUFBYSxFQUNkLE1BQU0sYUFBYSxDQUFDO0FBRXJCO0lBMkM0QyxrREFBTztJQWlCakQsZ0NBQ1ksTUFBc0IsRUFDdEIsY0FBNkIsRUFDN0Isb0JBQXlDLEVBQ3pDLE9BQWU7UUFKM0IsWUFNRSxrQkFBTSxNQUFNLEVBQUUsY0FBYyxFQUFFLG9CQUFvQixFQUFFLE9BQU8sQ0FBQyxTQUM3RDtRQU5XLFlBQU0sR0FBTixNQUFNLENBQWdCO1FBQ3RCLG9CQUFjLEdBQWQsY0FBYyxDQUFlO1FBQzdCLDBCQUFvQixHQUFwQixvQkFBb0IsQ0FBcUI7UUFDekMsYUFBTyxHQUFQLE9BQU8sQ0FBUTtRQW5CM0Isb0JBQWMsR0FBRyxjQUFjLENBQUM7UUFDaEMsWUFBTSxHQUFXLENBQUMsQ0FBQztRQUNuQixlQUFTLEdBQVcsQ0FBQyxDQUFDO1FBRXRCLFlBQU0sR0FBbUIsRUFBRSxDQUFDO1FBRzVCLGNBQVEsR0FBWSxLQUFLLENBQUM7UUFHMUIsZUFBUyxHQUFHLElBQUksQ0FBQztRQUNqQixrQkFBWSxHQUFRLFNBQVMsQ0FBQztRQUU5QixpQkFBVyxHQUFXLEVBQUUsQ0FBQzs7SUFTekIsQ0FBQzs7Z0JBbkVGLFNBQVMsU0FBQztvQkFDVCxRQUFRLEVBQUUsb0JBQW9CO29CQUM5QixRQUFRLEVBQUUsMHpDQXNDTDtvQkFDTCxNQUFNLEVBQUUsQ0FBQyw2RkFBNkYsQ0FBQztpQkFDeEc7OztnQkF6RFEsY0FBYztnQkFZckIsYUFBYTtnQkFEYixtQkFBbUI7Z0JBWFksTUFBTTs7SUFtRnZDLDZCQUFDO0NBQUEsQUFwRUQsQ0EyQzRDLE9BQU8sR0F5QmxEO1NBekJZLHNCQUFzQiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbXBvbmVudCwgT25Jbml0IH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBLdWlWaWV3IH0gZnJvbSAnLi4va3VpLXZpZXcnO1xuaW1wb3J0IHsgQWN0aXZhdGVkUm91dGUsIFBhcmFtcywgUm91dGVyIH0gZnJvbSAnQGFuZ3VsYXIvcm91dGVyJztcbmltcG9ydCB7IFN1YnNjcmlwdGlvbiB9IGZyb20gJ3J4anMnO1xuaW1wb3J0IHtcbiAgQXBpU2VydmljZUVycm9yLFxuICBFeHRlbmRlZFNlYXJjaFBhcmFtcyxcbiAgR3JhdnNlYXJjaEdlbmVyYXRpb25TZXJ2aWNlLFxuICBLbm9yYUNvbnN0YW50cyxcbiAgT250b2xvZ3lDYWNoZVNlcnZpY2UsXG4gIE9udG9sb2d5SW5mb3JtYXRpb24sXG4gIFJlYWRSZXNvdXJjZSxcbiAgUmVhZFJlc291cmNlc1NlcXVlbmNlLFxuICBTZWFyY2hQYXJhbXNTZXJ2aWNlLFxuICBTZWFyY2hTZXJ2aWNlXG59IGZyb20gJ0Brbm9yYS9jb3JlJztcblxuQENvbXBvbmVudCh7XG4gIHNlbGVjdG9yOiAna3VpLXNlYXJjaC1yZXN1bHRzJyxcbiAgdGVtcGxhdGU6IGA8ZGl2ICpuZ0lmPVwiIXJlcmVuZGVyXCI+XG4gICAgPGRpdiAqbmdJZj1cIm51bWJlck9mQWxsUmVzdWx0cyAhPT0gMCAmJiByZXN1bHQ7IGVsc2Ugbm9SZXN1bHRcIj5cbiAgICAgICAgPGg0Pk51bWJlciBvZiByZXN1bHRzOiB7e251bWJlck9mQWxsUmVzdWx0c319PC9oND5cbiAgICAgICAgPG1hdC10YWItZ3JvdXA+XG4gICAgICAgICAgICA8bWF0LXRhYiBsYWJlbD1cIkxpc3RcIj5cbiAgICAgICAgICAgICAgICA8a3VpLWxpc3QtdmlldyBbcmVzdWx0XT1cInJlc3VsdFwiIFtvbnRvbG9neUluZm9dPVwib250b2xvZ3lJbmZvXCIgW2lzTG9hZGluZ109XCJpc0xvYWRpbmdcIj48L2t1aS1saXN0LXZpZXc+XG4gICAgICAgICAgICA8L21hdC10YWI+XG4gICAgICAgICAgICA8bWF0LXRhYiBsYWJlbD1cIkdyaWRcIj5cbiAgICAgICAgICAgICAgICA8a3VpLWdyaWQtdmlldz48L2t1aS1ncmlkLXZpZXc+XG4gICAgICAgICAgICA8L21hdC10YWI+XG4gICAgICAgICAgICA8bWF0LXRhYiBsYWJlbD1cIlRhYmxlXCI+XG4gICAgICAgICAgICAgICAgPGt1aS10YWJsZS12aWV3Pjwva3VpLXRhYmxlLXZpZXc+XG4gICAgICAgICAgICA8L21hdC10YWI+XG4gICAgICAgICAgICA8bWF0LXRhYiBsYWJlbD1cIkdyYXZzZWFyY2hcIj5cbiAgICAgICAgICAgICAgICA8a3VpLWdyYXBoLXZpZXc+PC9rdWktZ3JhcGgtdmlldz5cbiAgICAgICAgICAgIDwvbWF0LXRhYj5cbiAgICAgICAgPC9tYXQtdGFiLWdyb3VwPlxuXG4gICAgICAgIDxkaXYgY2xhc3M9XCJsb2FkLXBhbmVsXCIgKm5nSWY9XCJyZXN1bHQubGVuZ3RoID4gMFwiPlxuICAgICAgICAgICAgPGJ1dHRvbiBtYXQtZmxhdC1idXR0b24gY29sb3I9XCJwcmltYXJ5XCIgY2xhc3M9XCJsaW5rIGNlbnRlclwiIChjbGljayk9XCJsb2FkTW9yZShvZmZzZXQpXCIgKm5nSWY9XCJvZmZzZXQgPCBtYXhPZmZzZXRcIj5Mb2FkIG1vcmVcbiAgICAgICAgICAgICAgICA8bWF0LWljb24+a2V5Ym9hcmRfYXJyb3dfZG93bjwvbWF0LWljb24+XG4gICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgPC9kaXY+XG5cbiAgICA8L2Rpdj5cblxuICAgIDwhLS0gSW4gY2FzZSBvZiAwIHJlc3VsdCAtLT5cbiAgICA8bmctdGVtcGxhdGUgI25vUmVzdWx0PlxuICAgICAgICA8cD5cbiAgICAgICAgICAgIDxzdHJvbmc+Tm8gcmVzdWx0PC9zdHJvbmc+XG4gICAgICAgIDwvcD5cbiAgICA8L25nLXRlbXBsYXRlPlxuXG48L2Rpdj5cblxuPCEtLSBFcnJvciBtZXNzYWdlIC0tPlxuPGRpdiAqbmdJZj1cImVycm9yTWVzc2FnZVwiPlxuICAgIDxwPlRoZXJlIGlzIGFuIGVycm9yOiB7e2Vycm9yTWVzc2FnZX19PC9wPlxuPC9kaXY+YCxcbiAgc3R5bGVzOiBbYC5sb2FkLXBhbmVse3dpZHRoOjEwMCV9LmxvYWQtcGFuZWwgLmNlbnRlcntkaXNwbGF5OmJsb2NrO2xpbmUtaGVpZ2h0OjI0cHg7bWFyZ2luOjEycHggYXV0b31gXVxufSlcbmV4cG9ydCBjbGFzcyBTZWFyY2hSZXN1bHRzQ29tcG9uZW50IGV4dGVuZHMgS3VpVmlldyB7XG5cbiAgS25vcmFDb25zdGFudHMgPSBLbm9yYUNvbnN0YW50cztcbiAgb2Zmc2V0OiBudW1iZXIgPSAwO1xuICBtYXhPZmZzZXQ6IG51bWJlciA9IDA7XG4gIGdyYXZzZWFyY2hHZW5lcmF0b3I6IEV4dGVuZGVkU2VhcmNoUGFyYW1zO1xuICByZXN1bHQ6IFJlYWRSZXNvdXJjZVtdID0gW107XG4gIG9udG9sb2d5SW5mbzogT250b2xvZ3lJbmZvcm1hdGlvbjtcbiAgbnVtYmVyT2ZBbGxSZXN1bHRzOiBudW1iZXI7XG4gIHJlcmVuZGVyOiBib29sZWFuID0gZmFsc2U7XG4gIHNlYXJjaFF1ZXJ5OiBzdHJpbmc7XG4gIHNlYXJjaE1vZGU6IHN0cmluZztcbiAgaXNMb2FkaW5nID0gdHJ1ZTtcbiAgZXJyb3JNZXNzYWdlOiBhbnkgPSB1bmRlZmluZWQ7XG4gIG5hdmlnYXRpb25TdWJzY3JpcHRpb246IFN1YnNjcmlwdGlvbjtcbiAgcGFnaW5nTGltaXQ6IG51bWJlciA9IDI1O1xuXG4gIGNvbnN0cnVjdG9yKFxuICAgIHByb3RlY3RlZCBfcm91dGU6IEFjdGl2YXRlZFJvdXRlLFxuICAgIHByb3RlY3RlZCBfc2VhcmNoU2VydmljZTogU2VhcmNoU2VydmljZSxcbiAgICBwcm90ZWN0ZWQgX3NlYXJjaFBhcmFtc1NlcnZpY2U6IFNlYXJjaFBhcmFtc1NlcnZpY2UsXG4gICAgcHJvdGVjdGVkIF9yb3V0ZXI6IFJvdXRlclxuICApIHtcbiAgICBzdXBlcihfcm91dGUsIF9zZWFyY2hTZXJ2aWNlLCBfc2VhcmNoUGFyYW1zU2VydmljZSwgX3JvdXRlcik7XG4gIH1cbn1cbiJdfQ==
